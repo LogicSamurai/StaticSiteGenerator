@@ -50,7 +50,7 @@ def generate_page(from_path, template_path, dest_path, basepath="/"):
     with open(dest_path, "w", encoding="utf-8") as f:
         f.write(template)
 
-def copy_static_to_docs():
+def copy_static_to_docs(basepath="/"):
     source = "./static"
     destination = "./docs"
 
@@ -64,7 +64,7 @@ def copy_static_to_docs():
     from_path = "./content/index.md"
     template_path = "./template.html"
     dest_path = './docs/index.html'
-    generate_page(from_path, template_path, dest_path)
+    generate_page(from_path, template_path, dest_path, basepath)
     
 def main():
     # Get basepath from CLI argument, default to "/"
@@ -75,7 +75,7 @@ def main():
 
     text_obj = TextNode("Hello, World!",TextType.TEXT,"gurupatel.netlify.app")
 
-    copy_static_to_docs()
+    copy_static_to_docs(basepath)
     generate_pages_recursive('./content', './template.html', './docs', basepath)
     print(text_obj)
 
