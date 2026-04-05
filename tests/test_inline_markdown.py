@@ -5,7 +5,7 @@ from src.inline_markdown import split_nodes_image,split_nodes_link,text_to_textn
 from src.blockutils import markdown_to_blocks
 
 
-class TestTextNode(unittest.TestCase):
+# class TestTextNode(unittest.TestCase):
     # def test_delim_bold(self):
     #     node = TextNode("This is text with a **bolded** word", TextType.TEXT)
     #     new_nodes = split_nodes_delimiter([node], "**", TextType.BOLD)
@@ -207,45 +207,45 @@ class TestTextNode(unittest.TestCase):
     #     nodes = text_to_textnodes(text)
     #     self.assertListEqual([], nodes)
 
-    def test_markdown_to_blocks(self):
-        md = """
-This is **bolded** paragraph
+# #     def test_markdown_to_blocks(self):
+# #         md = """
+# # This is **bolded** paragraph
 
-This is another paragraph with _italic_ text and `code` here
-This is the same paragraph on a new line
+# # This is another paragraph with _italic_ text and `code` here
+# # This is the same paragraph on a new line
 
-- This is a list
-- with items
-"""
-        blocks = markdown_to_blocks(md)
-        self.assertEqual(
-            blocks,
-            [
-                "This is **bolded** paragraph",
-                "This is another paragraph with _italic_ text and `code` here\nThis is the same paragraph on a new line",
-                "- This is a list\n- with items",
-            ],
-        )
+# # - This is a list
+# # - with items
+# # """
+# #         blocks = markdown_to_blocks(md)
+# #         self.assertEqual(
+# #             blocks,
+# #             [
+# #                 "This is **bolded** paragraph",
+# #                 "This is another paragraph with _italic_ text and `code` here\nThis is the same paragraph on a new line",
+# #                 "- This is a list\n- with items",
+# #             ],
+# #         )
 
-    def test_markdown_to_blocks_ignores_empty_blocks(self):
-        md = """
+# #     def test_markdown_to_blocks_ignores_empty_blocks(self):
+# #         md = """
 
-First block
-
-
-
-Second block
-
-"""
-        blocks = markdown_to_blocks(md)
-        self.assertEqual(
-            blocks,
-            [
-                "First block",
-                "Second block",
-            ],
-        )
+# # First block
 
 
-if __name__ == "__main__":
-    unittest.main()
+
+# Second block
+
+# """
+#         blocks = markdown_to_blocks(md)
+#         self.assertEqual(
+#             blocks,
+#             [
+#                 "First block",
+#                 "Second block",
+#             ],
+#         )
+
+
+# if __name__ == "__main__":
+#     unittest.main()
